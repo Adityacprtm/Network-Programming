@@ -5,8 +5,8 @@ def get(domain, url):
     conn = http.client.HTTPSConnection(domain)
     conn.request("GET", url)
     response = conn.getresponse()
-    x = response.read()
-    return json.loads(x)
+    a = response.read()
+    return json.loads(a)
 
 isbn = input('masukan isbn : ')
 data = get("www.googleapis.com", "/books/v1/volumes?q="+isbn)
