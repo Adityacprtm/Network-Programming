@@ -32,7 +32,7 @@ def show():
     print("Tanggal terbit = " + thn)
 
 isbn = input('masukan isbn : ')
-#Jika ada eror, hapus keynya
+#Jika ada eror pada API, hapus keynya
 data = get("www.googleapis.com", "/books/v1/volumes?q=isbn:"+isbn+"&key=AIzaSyC2oAuT04JNRVZOp86BbeQi6JT-J4-HLvs")
 set(data)
 show()
