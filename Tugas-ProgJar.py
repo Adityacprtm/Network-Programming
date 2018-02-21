@@ -9,7 +9,7 @@ def get(domain, url):
     return json.loads(a)
 
 isbn = input('masukan isbn : ')
-data = get("www.googleapis.com", "/books/v1/volumes?q="+isbn)
+data = get("www.googleapis.com", "/books/v1/volumes?q=isbn:"+isbn+"&key=AIzaSyC2oAuT04JNRVZOp86BbeQi6JT-J4-HLvs")
 print("Judul: " + data['items'][0]['volumeInfo']['title'])
 print("Pengarang: ")
 for nama in data['items'][0]['volumeInfo']['authors']:
