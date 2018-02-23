@@ -3,7 +3,6 @@ import socket
 
 #inisiasi objek socket UDP IP4
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
 #kirim ke server
