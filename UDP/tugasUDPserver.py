@@ -17,4 +17,3 @@ while True:
         sock.sendto(str(tanggal).encode('ascii'), client_address)
     else:
         sock.sendto("input tidak tersedia".encode('ascii'), client_address)
-
