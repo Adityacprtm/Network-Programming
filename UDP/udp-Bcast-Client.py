@@ -7,7 +7,7 @@ sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 
 #kirim ke server
-data = "selamat sore ini bcast"
+data = "tanggal berapa?"
 sock.sendto( data.encode('utf-8'), ("192.168.0.255", 6666) )
 
 #baca dari server
