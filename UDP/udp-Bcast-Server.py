@@ -4,24 +4,31 @@ from datetime import timedelta, datetime
 
 #inisiasi objek socket UDP IP4
 sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-
+#inisiasi broadcast
 sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
+
 #IP 0.0.0.0 bisa di akses dari mana saja, sebaliknya IP tertentu + port tertentu
 sock.bind( ("0.0.0.0", 6666) )
 
 while True:
     #baca data yg diterima dari client
     data, client_address = sock.recvfrom(1000)
-    print(data)
-    print(client_address)
+    print("request from ", client_address)
     dt = data.decode('utf-8')
+    print(dt)
     if dt == 'tanggal berapa?':
         tanggal = datetime.today().strftime("%d-%m-%Y")
-        print(tanggal)
-        sock.sendto(str(tanggal).encode('utf-8'), client_address)
+        ans = "tanggal: " + str(tanggal)
+        sock.sendto(ans.encode('utf-8'), client_address)
     elif dt == 'jam berapa?':
         jam = datetime.today().strftime("%H.%M.%S")
-        print(tanggal)
-        sock.sendto(str(jam).encode('utf-8'), client_address)
+        ans = "jam: " + str(jam)
+        sock.sendto(ans.encode('utf-8'), client_address)
     else:
         sock.sendto("input tidak tersedia".encode('utf-8'), client_address)
+'''
+tanggal = datetime.today().strftime("%d-%m-%Y")
+jam = datetime.today().strftime("%H.%M.%S")
+msg = "tanggal: " + str(tanggal) + " dan jam: " + str(jam)
+sock.sendto(str(msg).encode('utf-8'), client_address)
+'''
