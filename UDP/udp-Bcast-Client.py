@@ -8,6 +8,8 @@ sock.setsockopt(socket.SOL_SOCKET, socket.SO_BROADCAST, 1)
 #kirim ke server
 data = "tanggal berapa?"
 sock.sendto( data.encode('utf-8'), ("192.168.0.255", 6666) )
+data = "jam berapa?"
+sock.sendto(data.encode('utf-8'), ("192.168.0.255", 6666))
 
 #baca dari server
 server_data, server_addr = sock.recvfrom(1000)

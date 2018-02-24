@@ -17,6 +17,11 @@ while True:
     dt = data.decode('utf-8')
     if dt == 'tanggal berapa?':
         tanggal = datetime.today().strftime("%d-%m-%Y")
+        print(tanggal)
         sock.sendto(str(tanggal).encode('utf-8'), client_address)
+    elif dt == 'jam berapa?':
+        jam = datetime.today().strftime("%H.%M.%S")
+        print(tanggal)
+        sock.sendto(str(jam).encode('utf-8'), client_address)
     else:
         sock.sendto("input tidak tersedia".encode('utf-8'), client_address)
