@@ -26,9 +26,3 @@ while True:
         sock.sendto(ans.encode('utf-8'), client_address)
     else:
         sock.sendto("input tidak tersedia".encode('utf-8'), client_address)
-'''
-tanggal = datetime.today().strftime("%d-%m-%Y")
-jam = datetime.today().strftime("%H.%M.%S")
-msg = "tanggal: " + str(tanggal) + " dan jam: " + str(jam)
-sock.sendto(str(msg).encode('utf-8'), client_address)
-'''
