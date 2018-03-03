@@ -27,4 +27,4 @@ while True:
     conn.send(data.encode('utf-8'))
 
     #tutup koneksi
-    #conn.close()
+    conn.close()
