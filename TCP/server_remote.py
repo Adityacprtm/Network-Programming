@@ -2,7 +2,7 @@ import socket, os
 
 tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-tcp_sock.bind(("0.0.0.0", 6668))
+tcp_sock.bind( ("0.0.0.0", 6668) )
 
 tcp_sock.listen(100)
 
@@ -18,7 +18,7 @@ while True:
         try:
             f = open(namaFile,"w+")
             msg = "OK"
-            for i in range(10):
+            for i in range(5):
                 f.write("This is line %d\r\n" % (i+1))
             conn.send(msg.encode('utf-8'))
             print(cmd)

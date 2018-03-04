@@ -11,4 +11,4 @@ data = tcp_sock.recv(1000)
 data = data.decode('utf-8')
 print(data)
 
-tcp_sock.close
+tcp_sock.close()
