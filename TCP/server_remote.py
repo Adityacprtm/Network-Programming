@@ -10,6 +10,7 @@ while True:
     conn, client_addr = tcp_sock.accept()
     data = conn.recv(1000)
     data = data.decode('utf-8')
+    #split dari spasi setelah kata pertama
     data = data.split(" ",1)
     cmd = data[0]
     namaFile = data[1]
