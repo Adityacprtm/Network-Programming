@@ -15,8 +15,7 @@ def handle_thread(conn):
             data = data.decode('utf-8')
             data = data.split(" ", 1)
             cmd = data[0]
-            namaFile = data[1]
-            print(namaFile)
+            namaFile = data[1] + ".txt"
             if cmd == "new":
                 try:
                     f = open(namaFile, "w+")
@@ -27,7 +26,7 @@ def handle_thread(conn):
                     print(cmd)
                     f.close()
                 except:
-                    msg = 'Something went wrong!'
+                    msg = 'Something wrong! Can\'t create %s file.' % namaFile
                     conn.send(msg.encode('utf-8'))
             elif cmd == "read":
                 try:
@@ -37,7 +36,7 @@ def handle_thread(conn):
                     print(cmd)
                     f.close()
                 except:
-                    msg = 'Something went wrong!'
+                    msg = 'Sorry, Can\'t read %s file.' % namaFile
                     conn.send(msg.encode('utf-8'))
             elif cmd == "del":
                 if os.path.exists(namaFile):
@@ -46,7 +45,7 @@ def handle_thread(conn):
                     conn.send(msg.encode('utf-8'))
                     print(cmd)
                 else:
-                    msg = "Sorry, can not remove %s file." % "test.txt"
+                    msg = "Sorry, can\'t remove %s file." % namaFile
                     conn.send(msg.encode('utf-8'))
             else:
                 msg = "input not available"
