@@ -19,9 +19,8 @@ def handle_thread(conn):
             if cmd == "new":
                 try:
                     f = open(namaFile, "w+")
-                    msg = "OK"
-                    for i in range(3):
-                        f.write("This is line %d\r\n" % (i+1))
+                    msg = "OK - Created"
+                    f.write("HELLO WORLD!!!")
                     conn.send(msg.encode('utf-8'))
                     print(cmd)
                     f.close()
@@ -41,7 +40,7 @@ def handle_thread(conn):
             elif cmd == "del":
                 if os.path.exists(namaFile):
                     os.remove(namaFile)
-                    msg = "OK"
+                    msg = "OK - Deleted"
                     conn.send(msg.encode('utf-8'))
                     print(cmd)
                 else:
