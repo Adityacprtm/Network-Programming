@@ -23,7 +23,7 @@ def handle_thread(conn):
                     f = open(namaFile, "w+")
                     msg = "OK - Created"
                     for i in range(0,20):
-                        f.write('HELLO WORLD!!! ')
+                        f.write(i + ' HELLO WORLD!!! ')
                     send_termination(conn, msg)
                     #conn.send(msg.encode('utf-8'))
                     print(cmd)
