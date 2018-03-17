@@ -10,13 +10,13 @@ def recv_termination(conn):
     data = ''
     while True:
         #baca data
-        buffer = conn.recv(100)
+        buffer = conn.recv(10)
         #ubah jadi string, python pakai byte
         buffer = buffer.decode('ascii')
         # cek jika buffer mengandung term char
         if "\r\n" in buffer :
             #buang term char
-            data = data.replace("\r\n", "")
+            data = data.replace("\r\n", "ASU")
             #tambahkan buffer ke data
             data = data + buffer
             # return (keluar dari fungsi)

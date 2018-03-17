@@ -9,7 +9,7 @@ tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 tcp_sock.connect(("127.0.0.1", 6667))
 
 #kirim data
-data = 1
+data = 50
 #representasikan variable data sebagai unsigned int, little endian
 tcp_sock.send(struct.pack("<I",data))
 

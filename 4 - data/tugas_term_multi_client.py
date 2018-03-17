@@ -1,4 +1,5 @@
 import socket
+from fungsi import send_termination, recv_termination
 
 tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -10,9 +11,11 @@ while True:
     input1 = input("command > ")
     input2 = input("File name > ")
     data = input1 + " " + input2
-    tcp_sock.send(data.encode('utf-8'))
-    data = tcp_sock.recv(10000)
-    data = data.decode('utf-8')
+    #send_termination(tcp_sock, data)
+    tcp_sock.send(data.encode('ascii'))
+    data = recv_termination(tcp_sock)
+    #data = tcp_sock.recv(100)
+    #data = data.decode('utf-8')
     print(data)
 
 tcp_sock.close()

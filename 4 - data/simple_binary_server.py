@@ -27,7 +27,7 @@ while True:
     data = 'OK ' + str(data)
     
     #kirim balik ke client
-    conn.send(data.encode('utf-8'))
+    conn.send(data.encode('ascii'))
 
     #tutup koneksi
     conn.close()
