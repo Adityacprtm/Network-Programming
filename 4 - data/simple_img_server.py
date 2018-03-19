@@ -1,7 +1,7 @@
 import socket
 import os
 from threading import Thread
-from fungsi2 import send_size, recv_size
+from fungsi import send_img_size, recv_img_size
 
 tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
@@ -24,7 +24,7 @@ def handle_thread(conn):
                     f = open(img_file, "rb")
                     data = f.read()
                     #conn.send(data)
-                    send_size(conn, data)
+                    send_img_size(conn, data)
                     print(cmd)
                     f.close()
                 except:
@@ -39,12 +39,12 @@ def handle_thread(conn):
                 else:
                     msg = "Sorry, can\'t remove %s file." % namaFile
                     conn.send(msg.encode('ascii'))
-            elif cmd == "copy":
+            elif cmd == "get":
                 try:
                     img_file = "C:/Users/Aditya C. Pratama/Documents/GitHub/Pemrograman-Jaringan-C/4 - data/"+namaFile
                     fin = open(img_file, "rb")
                     data = fin.read()
-                    send_size(conn, data)
+                    send_img_size(conn, data)
                     print(cmd)
                     fin.close()
                 except IOError:
@@ -55,7 +55,6 @@ def handle_thread(conn):
                 conn.send(msg.encode('ascii'))
         except:
             conn.close()
-
 
 while True:
     conn, client_addr = tcp_sock.accept()

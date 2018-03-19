@@ -12,7 +12,6 @@ def send_size(conn, data):
     #kirim
     conn.send(data)
 
-
 def recv_size(conn):
     #baca ukuran data int = 4byte
     size = conn.recv(4)
