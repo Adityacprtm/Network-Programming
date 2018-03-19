@@ -1,6 +1,6 @@
 #import socket
 import socket
-from fungsi import send_size, recv_size
+from fungsi2 import send_size, recv_size
 
 #inisiasi socket TCP/IPv4
 tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
