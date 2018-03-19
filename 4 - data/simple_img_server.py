@@ -17,7 +17,7 @@ def handle_thread(conn):
             data = data.decode('ascii')
             data = data.split(" ", 1)
             cmd = data[0]
-            namaFile = data[1]
+            namaFile = data[1] + ".jpg"
             if cmd == "read":
                 try:
                     img_file = "C:/Users/Aditya C. Pratama/Documents/GitHub/Pemrograman-Jaringan-C/4 - data/"+namaFile
