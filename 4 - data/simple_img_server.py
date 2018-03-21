@@ -20,7 +20,7 @@ def handle_thread(conn):
             namaFile = data[1] + ".jpg"
             if cmd == "read":
                 try:
-                    img_file = "C:/Users/Aditya C. Pratama/Documents/GitHub/Pemrograman-Jaringan-C/4 - data/"+namaFile
+                    img_file = namaFile
                     f = open(img_file, "rb")
                     data = f.read()
                     #conn.send(data)
@@ -41,7 +41,7 @@ def handle_thread(conn):
                     conn.send(msg.encode('ascii'))
             elif cmd == "get":
                 try:
-                    img_file = "C:/Users/Aditya C. Pratama/Documents/GitHub/Pemrograman-Jaringan-C/4 - data/"+namaFile
+                    img_file = namaFile
                     fin = open(img_file, "rb")
                     data = fin.read()
                     send_img_size(conn, data)

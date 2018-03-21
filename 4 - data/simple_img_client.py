@@ -13,7 +13,7 @@ while True:
     data = input1 + " " + input2
     tcp_sock.send(data.encode('ascii'))
     #send_size(tcp_sock, data)
-    if input1 == "copy":
+    if input1 == "get":
         data = recv_img_size(tcp_sock)
         fh = open("ImgToSave.jpg", "wb")
         fh.write(data)
