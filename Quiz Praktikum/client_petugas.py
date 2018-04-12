@@ -1,18 +1,22 @@
 #import socket
 import socket
+import json
 
 #inisiasi objek
 tcp_sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 #kirim req koneksi ke server
-tcp_sock.connect(("127.0.0.1", 7778))
+tcp_sock.connect(("127.0.0.1", 6667))
+
+data = {
+    "command" : "PETUGAS"
+}
+data = json.dumps(data)
+tcp_sock.send(data.encode('utf-8'))
 
 while True:
-    data = tcp_sock.recv(1024)
+    data = tcp_sock.recv(100)
     data = data.decode('utf-8')
-    data = data.split("#")
-    nama = data[0]
-    alamat = data[1]
-    print("nama pengirim : " + nama + "\nalamat pengirim : " + alamat)
+    print(data)
 
 tcp_sock.close()
