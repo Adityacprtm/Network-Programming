@@ -4,7 +4,7 @@ import time
 
 ip = sys.argv[1]
 
-for i in range(70,100):
+for i in range(70,75):
     tcp = IP(dst=ip)/TCP(dport=i)
     ans = sr1(tcp, retry=-1, verbose=False)
     if ans is None:
