@@ -10,7 +10,7 @@ def recv_termination(conn):
     data = ''
     while True:
         #baca data
-        buffer = conn.recv(100)
+        buffer = conn.recv(10)
         #ubah jadi string, python pakai byte
         buffer = buffer.decode('ascii')
         # cek jika buffer mengandung term char
